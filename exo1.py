@@ -2,6 +2,10 @@
 import httplib
 import sys
 import pdb
+
+
+print "hello git"
+
 LOG = False
 if(len(sys.argv) > 2):
     LOG = True
@@ -20,10 +24,7 @@ def connect(adresse):
     conn.request("GET", adresse)
     reponse = conn.getresponse()
     return reponse
-    #print r1.status,r1.reason
-    #data=r1.read()
-    #print len(data)
-    #print len(data.split(" "))
+
 
 MYCONNECT = connect(sys.argv[1])
 MYFILE = open(sys.argv[2], "w")
@@ -32,3 +33,4 @@ DATA=MYCONNECT.read()
 logger(MYFILE, "longeur:%d\n"%len(DATA))
 logger(MYFILE, "mots:%d\n"%len(DATA.split(" ")))
 MYFILE.close()
+
